@@ -20,42 +20,67 @@ coffee-quality-regression/
 
 ## Flujo de Trabajo
 
-### 1. Carga y Exploración de Datos
-- Carga de datasets desde archivos Excel
-- Análisis exploratorio de datos (EDA)
-- Identificación de patrones y correlaciones
+### 1. Procesamiento de datos
 
-### 2. Selección de Variables
-- **Variables de entrada (X):** Selección cuidadosa de features sin filtrar información del target
-- **Variable objetivo (Y):** Puntaje de Taza como métrica de calidad
+- **Importación de librerías**  
+  Se cargan todas las librerías necesarias para análisis, visualización y modelado.
 
-### 3. Preprocesamiento
+- **Carga y limpieza de datos de calidad**  
+  - Importación de varias hojas del archivo Excel de calidad con `pd.read_excel()`.
+  - Eliminación de columnas y filas irrelevantes (encabezados extra, pies de página).
+  - Normalización de nombres de columnas y depuración de los DataFrames.
 
-#### Variables de Entrada (X):
-- Imputación de valores faltantes
-- Escalado y normalización de datos numéricos
-- Codificación de variables categóricas
+- **Unificación de datos de calidad**  
+  - Concatenación de los DataFrames de las diferentes hojas en uno solo (`df_Calidad`).
 
-#### Variable Objetivo (Y):
-- Revisión de distribución del Puntaje de Taza
-- Aplicación de transformaciones si es necesario
+- **Procesamiento de notas de catación**  
+  - Limpieza y conversión de las notas en listas uniformes.
+  - Aplicación de one-hot encoding para convertir cada nota en una variable binaria.
 
-### 4. Entrenamiento de Modelos
-- **Modelo 1:** Regresión Lineal
-- **Modelo 2:** Random Forest Regressor
-- División de datos en conjuntos de entrenamiento y prueba
+- **Carga y limpieza de datos de tostión**  
+  - Importación de varias hojas del archivo Excel de tostión.
+  - Eliminación de columnas y filas innecesarias.
+  - Normalización de nombres de columnas y verificación de tipos de datos.
 
-### 5. Evaluación de Modelos
-- **Métricas utilizadas:**
-  - RMSE (Root Mean Square Error)
-  - MAE (Mean Absolute Error)
-  - R² (Coeficiente de Determinación)
-- Comparación de rendimiento entre modelos
+- **Unificación de datos de tostión**  
+  - Concatenación de los DataFrames de tostión en uno solo (`df_Tostion`).
 
-### 6. Explicabilidad
-- **LIME:** Explicaciones locales para predicciones individuales
-- **SHAP:** Valores de Shapley para interpretabilidad global
-- **Feature Importance:** Importancia de características en Random Forest
+- **Fusión de datos de calidad y tostión**  
+  - Unión de `df_Calidad` y `df_Tostion` usando la columna `LOTE` como clave para obtener un único DataFrame (`df_full`).
+
+- **Transformación y corrección de variables**  
+  - Conversión de columnas de tiempo y temperatura a formato numérico.
+  - Unificación de valores categóricos inconsistentes (errores ortográficos, variantes).
+  - Conversión de columnas numéricas al tipo adecuado.
+
+---
+
+### 2. Modelado y análisis
+
+- **Selección de variables**  
+  - Identificación de variables predictoras (X) y variable objetivo (Y).
+  - Procesamiento de variables categóricas mediante pipelines y one-hot encoding.
+
+- **Imputación de valores faltantes**  
+  - Reemplazo de valores NaN en la variable objetivo.
+
+- **División de los datos**  
+  - Separación en conjuntos de entrenamiento y prueba con `train_test_split`.
+
+- **Entrenamiento de modelos de regresión**  
+  - Entrenamiento de modelos como RandomForestRegressor y XGBRegressor.
+
+- **Evaluación de desempeño**  
+  - Cálculo de métricas como MSE y R² en el conjunto de prueba.
+  - Validación cruzada para evaluar la estabilidad y capacidad de generalización.
+
+- **Interpretación y explicabilidad**  
+  - Análisis de importancia de variables (feature importance).
+  - Interpretación con SHAP para entender el impacto de cada variable.
+
+- **Visualización y reporte de resultados**  
+  - Gráficas de importancia de variables y comparación entre modelos.
+  - Conclusiones sobre los factores que determinan
 
 ## Requisitos
 
