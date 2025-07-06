@@ -98,6 +98,7 @@ lime
 shap
 openpyxl
 jupyter
+xgboost
 ```
 
 ## Instrucciones de Uso
