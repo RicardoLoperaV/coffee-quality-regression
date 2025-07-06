@@ -140,5 +140,7 @@ jupyter notebook Coffee_Cup_Score.ipynb
 ## Autor y Licencia
 
 **Autor:** Ricardo Esteban Lopera Vasco
-**Institución:** Universidad Nacional de Colombia - Medellín (UNALMED)  
+
+**Institución:** Universidad Nacional de Colombia - Medellín (UNALMED) 
+
 **Curso:** Aprendizaje Automático  
