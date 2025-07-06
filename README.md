@@ -122,27 +122,23 @@ jupyter notebook Coffee_Cup_Score.ipynb
 ## Resultados Esperados
 
 ### Métricas de Evaluación
-- Comparación de RMSE, MAE y R² entre modelos
-- Identificación del modelo con mejor rendimiento
+- Cálculo y comparación de MSE (Mean Squared Error) y R² (coeficiente de determinación) para los modelos de regresión
+- Evaluación de desempeño mediante validación cruzada
+- Selección del modelo con mejor capacidad predictiva
 
 ### Visualizaciones
-- Gráficos de distribución de datos
-- Matrices de correlación
-- Gráficos de importancia de características
-- Visualizaciones de explicabilidad (LIME/SHAP)
+- Gráficos de distribución y limpieza de datos
+- Matrices de correlación entre variables
+- Gráficos de importancia de características (feature importance) para RandomForestRegressor y XGBRegressor
+- Visualizaciones de explicabilidad con SHAP (SHapley Additive exPlanations)
 
 ### Interpretabilidad
-- Identificación de variables más influyentes en la calidad del café
-- Explicaciones de predicciones individuales
-- Insights sobre factores que determinan el Puntaje de Taza
+- Identificación de las variables más influyentes en la predicción de la calidad del café
+- Análisis detallado del impacto de cada variable en la predicción usando SHAP
+- Conclusiones sobre los factores determinantes del Puntaje de Taza y recomendaciones prácticas
 
 ## Autor y Licencia
 
-**Autor:** [Tu Nombre]  
+**Autor:** Ricardo Esteban Lopera Vasco
 **Institución:** Universidad Nacional de Colombia - Medellín (UNALMED)  
 **Curso:** Aprendizaje Automático  
-**Licencia:** MIT License
-
----
-
-*Este proyecto es parte del desarrollo académico en técnicas de machine learning aplicadas a la industria cafetera.*
